@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To-Do List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add To-Do</h1>
+<div>
+    <form class="table" th:object="${todo}" th:action="@{save}" action="#" method="post">
+
+        <label for="text">Description</label>
+        <input type="text" id="text" th:field="*{text}" />
+        <div style="clear: both; display: block; height: 10px;"></div>
+
+
+        <label for="due">Due date</label>
+        <input type="text" id="due" th:field="*{due}" />
+        <div style="clear: both; display: block; height: 10px;"></div>
+
+
+        <input class="btn" type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

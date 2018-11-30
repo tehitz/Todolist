@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To-Do List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>To-Do list</h1>
+<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+<table>
+    <tr>
+        <th>To-do:</th>
+        <th>Date submitted</th>
+    </tr>
+    <tr th:each = "todo : ${todo}">
+        <td th:text="${todo.date}"></td>
+    </tr>
+</table>
+<a class="btn btn-primary" href="/savetodo">Add To-Do's</a>
+</body>
+</html>
