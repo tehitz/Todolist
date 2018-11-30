@@ -30,4 +30,10 @@ public class Todo {
         this.text = text;
 
     }
+
+    @Override
+    public String toString() {
+            return "Todo [id = " + id + "text = " + text + "]";
+    }
+
 }
