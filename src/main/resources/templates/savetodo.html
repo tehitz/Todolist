@@ -18,6 +18,10 @@
         <input type="text" id="due" th:field="*{due}" />
         <div style="clear: both; display: block; height: 10px;"></div>
 
+        <label for="date">Date submitted (you may not edit this value)</label>
+        <input type="text" id="date" th:field="*{date}" readonly="readonly" />
+        <div style="clear: both; display: block; height: 10px;"></div>
+
 
         <input class="btn" type="submit" value="Save"/>
     </form>

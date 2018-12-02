@@ -9,13 +9,16 @@
 <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
 <table>
     <tr>
-        <th>To-do:</th>
-        <th>Date submitted</th>
+        <th>To-do:
+        <th>To-do's due:</th>
+        <th>Date submitted:</th>
     </tr>
     <tr th:each = "todo : ${todo}">
+        <td th:text="${todo.text}"></td>
+        <td th:text="${todo.due}"></td>
         <td th:text="${todo.date}"></td>
     </tr>
 </table>
-<a class="btn btn-primary" href="/savetodo">Add To-Do's</a>
+<a href="/savetodo">Add To-Do's</a>
 </body>
 </html>

@@ -1,16 +1,42 @@
 package com.Todolist.Todolist.Domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 @Entity
 public class Todo {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) //generates value automatically
     private Long id;
+
     private String text;
-    private Date date;
+    private String date() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
+        Date newdate = new Date();
+        return dateFormat.format(newdate);
+    }
+    private String date = date().toString();
     private String due;
+
+
+
+
+    //Default constructor
+    public Todo() {
+
+    }
+
+    public Todo(String text, String date, String due) {
+        this.text = text;
+        this.due = due;
+        this.date = date;
+    }
 
     public String getDue() {
         return due;
@@ -20,11 +46,11 @@ public class Todo {
         this.due = due;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -44,15 +70,10 @@ public class Todo {
         this.text = text;
     }
 
-    public Todo(String text, Long id) {
-        this.id = id;
-        this.text = text;
-
-    }
 
     @Override
     public String toString() {
-            return "Todo [id = " + id + "text = " + text + "date = " + date + "due = " + due + "]";
+            return "Todo [id = " + id + ", text = " + text + ", date = " + date + ", due = " + due + "]";
     }
 
 }

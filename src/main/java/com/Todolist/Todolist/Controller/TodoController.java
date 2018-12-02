@@ -21,11 +21,31 @@ public class TodoController {
         return "list";
     }
 
-    //Saves a new todos
+    //Saves a todo's changes
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Todo todo){
         TRepository.save(todo);
-        return "redirect:todolist";
+        return "redirect:list";
+    }
+    //Saves a new todo
+
+    @RequestMapping(value = "/savetodo")
+    public String saveTodo(Model model){
+        model.addAttribute("todo", new Todo());
+        return "savetodo";
+    }
+
+    //Login screen
+    @RequestMapping(value="/login")
+    public String login() {
+        return "login";
+    }
+
+    //Login error
+    @RequestMapping("/login-error.html")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "login.html";
     }
 
 
