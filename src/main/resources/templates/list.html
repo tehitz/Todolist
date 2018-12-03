@@ -20,6 +20,7 @@
         <th>To-do:
         <th>To-do's due:</th>
         <th>Date submitted:</th>
+        <th sec:authorize="hasRole('ADMIN')"></th>
     </tr>
             </thead>
             <tbody>
@@ -27,6 +28,7 @@
         <td th:text="${todo.text}"></td>
         <td th:text="${todo.due}"></td>
         <td th:text="${todo.date}"></td>
+        <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${todo.id})}" class="btn btn-danger">Delete</a></td>
     </tr>
             </tbody>
 </table>

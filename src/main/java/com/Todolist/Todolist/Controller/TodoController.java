@@ -5,8 +5,11 @@ import com.Todolist.Todolist.Domain.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.sound.midi.Track;
 
 @Controller
 public class TodoController {
@@ -41,11 +44,11 @@ public class TodoController {
         return "login";
     }
 
-    //Login error
-    @RequestMapping("/login-error.html")
-    public String loginError(Model model) {
-        model.addAttribute("loginError", true);
-        return "login.html";
+
+    @RequestMapping(value = "delete/{id}", method=RequestMethod.GET)
+    public String delete(@PathVariable("id") Long id, Model model) {
+        TRepository.deleteById(id);
+        return "redirect:../list";
     }
 
 

@@ -38,11 +38,14 @@ public class TodolistApplication {
 				User Admin = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 				uRepository.save(Admin);
 
+				log.info("Creating a normal user");
+				User user = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+
 				DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
 				Date date = new Date();
 				System.out.println(dateFormat.format(date)); //For example 2016/11/16 12:08:43
 
-				log.info("Creating a one todo to prevent 404 error");
+				log.info("Creating a one todo to show some example data");
 				Todo todo1 = new Todo("Do a school project", dateFormat.format(date), "7.12.2018");
 				TRepository.save(todo1);
 

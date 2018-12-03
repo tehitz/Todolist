@@ -1,0 +1,17 @@
+.div-block-13{
+    position: absolute;
+    top: 0px;
+    right: 7px;
+    margin-top: 50px;
+    white-space: nowrap;
+    display:inline-block;
+}
+.alert-danger {
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.alert {
+    align-items: center;
+}
