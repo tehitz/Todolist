@@ -16,6 +16,7 @@ public class Todo {
     private Long id;
 
     private String text;
+    //takes current date and time
     private String date() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
         Date newdate = new Date();
