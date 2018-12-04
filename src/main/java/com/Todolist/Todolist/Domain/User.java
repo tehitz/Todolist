@@ -3,6 +3,7 @@ package com.Todolist.Todolist.Domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name="\"User\"")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,6 +59,11 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User = [id = " + id + "username = " + username + ", passwordHash = " + passwordHash + ", role = " + role + "]";
     }
 
 }
