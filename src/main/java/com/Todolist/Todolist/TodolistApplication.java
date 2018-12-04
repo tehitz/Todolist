@@ -44,7 +44,7 @@ public class TodolistApplication {
 
 				//No need to recreate users because they already are in the database
 
-				DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
+				/*DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
 				Date date = new Date();
 				System.out.println(dateFormat.format(date)); //For example 2016/11/16 12:08:43
 
@@ -55,7 +55,7 @@ public class TodolistApplication {
 				log.info("Logging all todos");
 				for (Todo todo : TRepository.findAll()) {
 					log.info(todo.toString());
-				}
+				} */
 
 			}
 		};

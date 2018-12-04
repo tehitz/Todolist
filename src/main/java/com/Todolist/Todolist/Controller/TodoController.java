@@ -33,7 +33,6 @@ public class TodoController {
     }
     //Saves a new todo
 
-    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/savetodo")
     public String saveTodo(Model model){
         model.addAttribute("todo", new Todo());
