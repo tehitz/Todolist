@@ -31,6 +31,11 @@ public class TodoController {
         TRepository.save(todo);
         return "redirect:list";
     }
+
+    @RequestMapping(value = "/")
+    public String redirect() {
+        return "redirect:list";
+    }
     //Saves a new todo
 
     @RequestMapping(value = "/savetodo")
