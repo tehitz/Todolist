@@ -33,14 +33,16 @@ public class TodolistApplication {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
-				log.info("Creating an Admin user");
+				/*log.info("Creating an Admin user");
 
 				User Admin = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 				uRepository.save(Admin);
 
 				log.info("Creating a normal user");
 				User user = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
-				uRepository.save(user);
+				uRepository.save(user); */
+
+				//No need to recreate users because they already are in the database
 
 				DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
 				Date date = new Date();
