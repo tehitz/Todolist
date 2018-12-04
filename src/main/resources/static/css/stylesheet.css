@@ -1,7 +1,14 @@
 .container {
     width: 50%;
 }
-
+.alert-warning {
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+}
 .alert-danger {
     width: 30%;
     align-items: center;

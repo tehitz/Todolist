@@ -55,5 +55,14 @@ public class TodoController {
         return "redirect:../list";
     }
 
+    //Editing todos
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
+    public String editTodo(@PathVariable("id") Long id, Model model) {
+        Todo todo = TRepository.findTodosById(id);
+        model.addAttribute("todo", todo);
+        return "edittodo";
+    }
+
 
 }
