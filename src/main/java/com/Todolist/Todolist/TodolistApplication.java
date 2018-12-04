@@ -40,6 +40,7 @@ public class TodolistApplication {
 
 				log.info("Creating a normal user");
 				User user = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+				uRepository.save(user);
 
 				DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
 				Date date = new Date();

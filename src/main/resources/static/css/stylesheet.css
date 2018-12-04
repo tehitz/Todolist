@@ -1,17 +1,45 @@
-.div-block-13{
-    position: absolute;
-    top: 0px;
-    right: 7px;
-    margin-top: 50px;
-    white-space: nowrap;
-    display:inline-block;
+.container {
+    width: 50%;
 }
+
 .alert-danger {
     width: 30%;
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin: auto;
+    vertical-align: middle;
 }
 .alert {
     align-items: center;
+}
+
+.navbar {
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.addtodo {
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.signout {
+    margin: auto;
+    align-items: right;
+    float: right;
+    padding: 4px;
+    justify-content: right;
+}
+
+.container .alert-danger {
+    vertical-align: revert;
+    margin: auto;
+    align-items: right;
+    float: right;
+    padding: 4px;
 }

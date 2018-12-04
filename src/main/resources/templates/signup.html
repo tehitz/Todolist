@@ -9,6 +9,9 @@
 <body>
 <div class="col-md-12" align="center">
 <h1>Sign-up</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" class="btn btn-danger"/>
+    </form>
     <form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
         <div>
             <label> Username :<input type="text" th:field="*{username}" class="form-control"/></label>

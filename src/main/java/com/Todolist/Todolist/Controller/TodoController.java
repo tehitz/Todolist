@@ -3,6 +3,7 @@ package com.Todolist.Todolist.Controller;
 import com.Todolist.Todolist.Domain.Todo;
 import com.Todolist.Todolist.Domain.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +33,7 @@ public class TodoController {
     }
     //Saves a new todo
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/savetodo")
     public String saveTodo(Model model){
         model.addAttribute("todo", new Todo());
@@ -45,6 +47,8 @@ public class TodoController {
     }
 
 
+    //delete a todo
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "delete/{id}", method=RequestMethod.GET)
     public String delete(@PathVariable("id") Long id, Model model) {
         TRepository.deleteById(id);

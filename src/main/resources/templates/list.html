@@ -8,10 +8,19 @@
 </head>
 <body>
 <div class="container">
-<h1>To-Do list</h1>
-    <div class="alert alert-dismissible alert-success fade show" th:if="@{param.login}">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>You logged in successfully!</strong></div>
+    <div class="signout">
+<h1 align="center">To-Do list</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" class="btn btn-danger"/>
+    </form>
+    </div>
+    <br>
+    <div class="alert alert-dismissible alert-success fade show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>You logged in successfully!</strong>
+    </div>
     <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
     <div class="row col-md-12 table-responsive">
         <table class="table">
@@ -36,4 +45,3 @@
 </div>
 </div>
 </body>
-</html>
