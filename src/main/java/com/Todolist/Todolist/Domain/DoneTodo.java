@@ -1,5 +1,7 @@
 package com.Todolist.Todolist.Domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -7,36 +9,30 @@ import java.util.Date;
 
 
 @Entity
-public class Todo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //generates value automatically
-    @Column(name = "id")
-    private Long id;
+public class DoneTodo {
 
+    @JoinColumn(name="id")
+    @Id
+    private Long id;
     private String text;
-    //takes current date and time
-    private String date() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY HH:mm");
-        Date newdate = new Date();
-        return dateFormat.format(newdate);
-    }
-    private String date = date().toString();
+    private String date;
     private String due;
 
 
-
-
-    //Default constructor
-    public Todo() {
+    public DoneTodo() {
 
     }
 
-    public Todo(Long id, String text, String date, String due) {
+    public DoneTodo(Long id, String date, String text, String due) {
+
         this.id = id;
+        this.date = date;
         this.text = text;
         this.due = due;
-        this.date = date;
+
     }
+
+
 
     public String getDue() {
         return due;
@@ -73,7 +69,7 @@ public class Todo {
 
     @Override
     public String toString() {
-            return "Todo [id = " + id + ", text = " + text + ", date = " + date + ", due = " + due + "]";
+        return "DoneTodo [id = " + id + ", text = " + text + ", date = " + date + ", due = " + due + "]";
     }
 
 }

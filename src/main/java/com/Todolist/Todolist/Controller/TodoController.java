@@ -1,7 +1,12 @@
 package com.Todolist.Todolist.Controller;
 
+import com.Todolist.Todolist.Domain.DoneTodo;
+import com.Todolist.Todolist.Domain.DoneTodoRepository;
 import com.Todolist.Todolist.Domain.Todo;
 import com.Todolist.Todolist.Domain.TodoRepository;
+import com.Todolist.Todolist.TodolistApplication;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -10,19 +15,52 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.sound.midi.Track;
 
 @Controller
 public class TodoController {
 
+    private static final Logger log = LoggerFactory.getLogger(TodolistApplication.class);
     @Autowired
     private TodoRepository TRepository;
+
+    @Autowired
+    private DoneTodoRepository DTRepository;
 
     //Lists all todos
     @RequestMapping(value="/list")
     public String list(Model model) {
         model.addAttribute("todo", TRepository.findAll());
+        model.addAttribute("donetodo", DTRepository.findAll());
         return "list";
+    }
+
+  /*  @RequestMapping(value="/donetodo")
+    public String DoneTodos(Model model) {
+        model.addAttribute("donetodo", DTRepository.findAll());
+        return "redirect:list";
+    }
+*/
+    @RequestMapping(value = "donetodo/{id}", method=RequestMethod.GET)
+    public String donetodo(@PathVariable("id") Long id, Model model) {
+        Todo todo = TRepository.findTodosById(id);
+        log.info(id.toString());
+        Long doneid = id;
+        String text = todo.getText();
+        String due = todo.getDue();
+        String date = todo.getDate();
+        DoneTodo done = new DoneTodo();
+        done.setId(doneid);
+        done.setText(text);
+        done.setDue(due);
+        done.setDate(date);
+
+
+        DTRepository.save(done);
+        log.info(done.toString());
+        model.addAttribute("donetodo", done);
+        TRepository.deleteById(id);
+
+        return "redirect:../list";
     }
 
     //Saves a todo's changes

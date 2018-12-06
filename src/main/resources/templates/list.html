@@ -41,10 +41,21 @@
         <td th:text="${todo.date}"></td>
         <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${todo.id})}" class="btn btn-danger">Delete</a></td>
         <td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-warning" th:href="@{/edit/{id}(id=${todo.id})}">Edit</a></td>
+        <td><a th:href="@{/donetodo/{id}(id=${todo.id})}" class="btn btn-primary">Done</a></td>
     </tr>
             </tbody>
 </table>
 <a class= "btn btn-primary" href="/savetodo">Add To-Do's</a>
+</div>
+    <h1 align="center">Done To-Do list</h1>
+    <div class="readonly">
+    <table class="table">
+    <tr th:each = "donetodo : ${donetodo}">
+        <td th:text="${donetodo.text}"></td>
+        <td th:text="${donetodo.due}"></td>
+        <td th:text="${donetodo.date}"></td>
+    </tr>
+    </table>
 </div>
 </div>
 </body>
