@@ -2,6 +2,8 @@ package com.Todolist.Todolist.Domain;
 
 import javax.persistence.*;
 
+//User class
+
 @Entity
 @Table(name="\"User\"")
 public class User {

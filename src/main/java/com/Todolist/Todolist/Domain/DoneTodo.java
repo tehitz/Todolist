@@ -19,6 +19,7 @@ public class DoneTodo {
     private String due;
 
 
+    //Default constructor
     public DoneTodo() {
 
     }

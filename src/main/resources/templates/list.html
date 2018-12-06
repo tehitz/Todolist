@@ -48,8 +48,12 @@
 <a class= "btn btn-primary" href="/savetodo">Add To-Do's</a>
 </div>
     <h1 align="center">Done To-Do list</h1>
-    <div class="readonly">
     <table class="table">
+        <tr>
+            <th>To-do:
+            <th>To-do's due:</th>
+            <th>Date submitted:</th>
+        </tr>
     <tr th:each = "donetodo : ${donetodo}">
         <td th:text="${donetodo.text}"></td>
         <td th:text="${donetodo.due}"></td>

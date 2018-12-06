@@ -4,6 +4,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+//Signup form class
 public class SignupForm {
     @NotEmpty
     @Size(min=5, max=30)

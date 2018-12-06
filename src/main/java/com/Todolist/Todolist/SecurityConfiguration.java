@@ -28,6 +28,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .and()
                 .authorizeRequests().antMatchers("/signup", "/saveuser").permitAll()
                 .and()
+                .authorizeRequests().antMatchers("/rest/todos", "/rest/donetodos").permitAll()
+                .and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin()

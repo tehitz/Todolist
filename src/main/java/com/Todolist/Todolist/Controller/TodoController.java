@@ -14,6 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -34,12 +38,7 @@ public class TodoController {
         return "list";
     }
 
-  /*  @RequestMapping(value="/donetodo")
-    public String DoneTodos(Model model) {
-        model.addAttribute("donetodo", DTRepository.findAll());
-        return "redirect:list";
-    }
-*/
+    //Makes todo done
     @RequestMapping(value = "donetodo/{id}", method=RequestMethod.GET)
     public String donetodo(@PathVariable("id") Long id, Model model) {
         Todo todo = TRepository.findTodosById(id);
@@ -105,6 +104,35 @@ public class TodoController {
         model.addAttribute("todo", todo);
         return "edittodo";
     }
+
+    //returns JSON formatted listing of all todos
+    @RequestMapping(value="/rest/todos", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Todo> todoListRest() {
+        return (List<Todo>) TRepository.findAll();
+    }
+
+    //returns JSON formatted listing of single todo by ID
+    @RequestMapping(value="/rest/todo/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    Optional<Todo> singleTodoRest(@PathVariable("id") Long Id) {
+        return TRepository.findById(Id);
+    }
+
+    //returns JSON formatted listing of all done todos
+    @RequestMapping(value="/rest/donetodos", method = RequestMethod.GET)
+    public @ResponseBody
+    List<DoneTodo> doneTodoListRest() {
+        return (List<DoneTodo>) DTRepository.findAll();
+    }
+
+    //returns JSON formatted listing of single done todo by ID
+    @RequestMapping(value="/rest/donetodo/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    Optional<DoneTodo> findDoneRest(@PathVariable("id") Long Id) {
+        return DTRepository.findById(Id);
+    }
+
 
 
 }

@@ -19,12 +19,14 @@ public class UserController {
     @Autowired
     private UserRepository URepository;
 
+    //Signing up
     @RequestMapping(value = "signup")
     public String addTodo(Model model){
         model.addAttribute("signupform", new SignupForm());
         return "signup";
     }
 
+    //Creates a new user
     @RequestMapping(value = "saveuser", method = RequestMethod.POST)
     public String save(@Valid @ModelAttribute("signupform") SignupForm signupForm, BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) { // validation errors
